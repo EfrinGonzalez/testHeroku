@@ -14,6 +14,11 @@ mongoose.Promise = Promise
 app.use(cors())
 app.use(bodyParser.json())
 
+app.get('/', function (req, res) {
+    res.send('Hello World!');
+})
+
+
 app.get('/posts/:id', async (req, res) => {
     var author = req.params.id
     var posts = await Post.find({ author })
